@@ -46,19 +46,26 @@ namespace WindowsFormsApp1
         private void ReadClipboard()
         {
             IDataObject dObj = Clipboard.GetDataObject();
+            IDataObject dObj2 = Clipboard.GetDataObject();
+            IDataObject dObj3 = Clipboard.GetDataObject();
             if (dObj.GetDataPresent(DataFormats.Text))
             {
                 textBox1.Text = (string)dObj.GetData(DataFormats.Text);
-                DatabaseOperations.AddData((string)dObj.GetData(DataFormats.Text),"Text");
+                DatabaseOperations.AddData((string)dObj.GetData(DataFormats.Text), "Text");
                 DatabaseConnection.OpenConnection();
-                string emre_ = DatabaseOperations.GetData(Convert.ToInt32(comboBox1.SelectedItem), dataGridView1);
-                CreatePanel.GetPanel(flowLayoutPanel1, emre_, 250, 200, 0, 0);
+                string stringData = DatabaseOperations.GetData(Convert.ToInt32(comboBox1.SelectedItem), dataGridView1);
+                CreatePanel.GetPanel(flowLayoutPanel1, stringData, 250, 200, 0, 0);
                 DatabaseConnection.CloseConnection();
 
             }
+            else if (dObj2.GetDataPresent(DataFormats.Bitmap))
+            {
+                MessageBox.Show("Test");
+                pictureBox1.Image = (Image)dObj2.GetData(DataFormats.Bitmap);
+            }
         }
         #endregion
-
+        OpenFileDialog ofd = new OpenFileDialog();
         private void Form1_Load(object sender, EventArgs e)
         {
             DataClipboard = SetClipboardViewer(this.Handle);

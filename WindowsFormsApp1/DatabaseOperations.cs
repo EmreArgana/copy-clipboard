@@ -22,7 +22,7 @@ namespace WindowsFormsApp1
             QLiteCommand.ExecuteNonQuery();
             DatabaseConnection.CloseConnection();
         }
-        public static void GetData(int id, DataGridView dataGridView)
+        public static string GetData(int id, DataGridView dataGridView)
         {
             string Value = null;
             DatabaseConnection.OpenConnection();
@@ -33,7 +33,7 @@ namespace WindowsFormsApp1
             QLiteDataAdapter.Fill(dataTable);
             dataGridView.DataSource = dataTable;
             DatabaseConnection.CloseConnection();
-            //return Value = dataTable.Rows[id]["CopiedText"].ToString();
+            return Value = dataTable.Rows[id]["CopiedText"].ToString();;
         }
     }
 }
