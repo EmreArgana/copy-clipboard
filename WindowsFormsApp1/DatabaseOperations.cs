@@ -12,16 +12,17 @@ namespace WindowsFormsApp1
         //string Command = "SELECT * FROM TableCopiedData  ";/*Where id Like '" + id + "'";*/
         //string Command = "SELECT * FROM TableCopiedData LIMIT 0,'" + 10 + "'";
 
-        public static void AddData(string CopiedText)
+        public static void AddData(string CopiedText,string Category)
         {
             DatabaseConnection.OpenConnection();
-            string Command = "INSERT INTO TableCopiedData (CopiedText) VALUES (@CopiedText)";
+            string Command = "INSERT INTO TableCopiedData (CopiedText,Category) VALUES (@CopiedText,@Category)";
             SQLiteCommand QLiteCommand = new SQLiteCommand(Command, DatabaseConnection.QLiteConnection);
             QLiteCommand.Parameters.AddWithValue("@CopiedText", CopiedText);
+            QLiteCommand.Parameters.AddWithValue("@Category", Category);
             QLiteCommand.ExecuteNonQuery();
             DatabaseConnection.CloseConnection();
         }
-        public static string GetData(int id, DataGridView dataGridView)
+        public static void GetData(int id, DataGridView dataGridView)
         {
             string Value = null;
             DatabaseConnection.OpenConnection();
@@ -32,7 +33,7 @@ namespace WindowsFormsApp1
             QLiteDataAdapter.Fill(dataTable);
             dataGridView.DataSource = dataTable;
             DatabaseConnection.CloseConnection();
-            return Value = dataTable.Rows[id]["CopiedText"].ToString();
+            //return Value = dataTable.Rows[id]["CopiedText"].ToString();
         }
     }
 }

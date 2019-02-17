@@ -10,7 +10,7 @@ namespace WindowsFormsApp1
 {
     public class CreatePanel
     {
-        public static Panel GetPanel(Form form, string text,int panelSizeW,int panelSizeH,int panelX,int panelY)
+        public static Panel GetPanel(FlowLayoutPanel flowLayoutPanel, string text,int panelSizeW,int panelSizeH,int panelX,int panelY)
         {
             var panel = new Panel();
             panel.Size = new Size(panelSizeW, panelSizeH);
@@ -23,7 +23,7 @@ namespace WindowsFormsApp1
             textBox.Location = new Point(0, 0);
             textBox.Text = text;
             panel.Controls.Add(textBox);
-            form.Controls.Add(panel);
+            flowLayoutPanel.Controls.Add(panel);
 
             return panel;
         }

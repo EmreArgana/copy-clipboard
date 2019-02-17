@@ -17,9 +17,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
-
-        int point_ = -250;
-
+        
         #region Clipboard Text Control
         IntPtr DataClipboard;
         [DllImport("User32.dll", CharSet = CharSet.Auto)]
@@ -51,11 +49,10 @@ namespace WindowsFormsApp1
             if (dObj.GetDataPresent(DataFormats.Text))
             {
                 textBox1.Text = (string)dObj.GetData(DataFormats.Text);
-                DatabaseOperations.AddData((string)dObj.GetData(DataFormats.Text));
-                point_ += 250;
+                DatabaseOperations.AddData((string)dObj.GetData(DataFormats.Text),"Text");
                 DatabaseConnection.OpenConnection();
                 string emre_ = DatabaseOperations.GetData(Convert.ToInt32(comboBox1.SelectedItem), dataGridView1);
-                CreatePanel.GetPanel(this, emre_, 250, 200, point_, 0);
+                CreatePanel.GetPanel(flowLayoutPanel1, emre_, 250, 200, 0, 0);
                 DatabaseConnection.CloseConnection();
 
             }
@@ -65,7 +62,6 @@ namespace WindowsFormsApp1
         private void Form1_Load(object sender, EventArgs e)
         {
             DataClipboard = SetClipboardViewer(this.Handle);
-
         }
 
         private void Form1_LocationChanged(object sender, EventArgs e)
