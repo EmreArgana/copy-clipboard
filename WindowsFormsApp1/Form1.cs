@@ -47,15 +47,11 @@ namespace WindowsFormsApp1
         {
             IDataObject dObj = Clipboard.GetDataObject();
             IDataObject dObj2 = Clipboard.GetDataObject();
-            IDataObject dObj3 = Clipboard.GetDataObject();
             if (dObj.GetDataPresent(DataFormats.Text))
             {
-                textBox1.Text = (string)dObj.GetData(DataFormats.Text);
-                DatabaseOperations.AddData((string)dObj.GetData(DataFormats.Text), "Text");
-                DatabaseConnection.OpenConnection();
-                string stringData = DatabaseOperations.GetData(Convert.ToInt32(comboBox1.SelectedItem), dataGridView1);
-                CreatePanel.GetPanel(flowLayoutPanel1, stringData, 250, 200, 0, 0);
-                DatabaseConnection.CloseConnection();
+                DatabaseOperations.AddData((string)dObj.GetData(DataFormats.Text), "Category");
+
+                CreatePanel.GetPanel(flowLayoutPanel1, DatabaseOperations.GetLastData(), 250, 200, 0, 0); 
 
             }
             else if (dObj2.GetDataPresent(DataFormats.Bitmap))
@@ -69,15 +65,15 @@ namespace WindowsFormsApp1
         private void Form1_Load(object sender, EventArgs e)
         {
             DataClipboard = SetClipboardViewer(this.Handle);
+            for (int i = 0; i < DatabaseOperations.GetDataCount(); i++)
+            {
+                CreatePanel.GetPanel(flowLayoutPanel1, DatabaseOperations.GetData(i), 250, 200, 0, 0);
+            }
         }
 
         private void Form1_LocationChanged(object sender, EventArgs e)
         {
             this.Text = this.Location.ToString();
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

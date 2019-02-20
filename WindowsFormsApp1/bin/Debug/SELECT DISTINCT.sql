@@ -1,0 +1,2 @@
+SELECT DISTINCT CopiedText
+FROM TableCopiedData
