@@ -17,7 +17,9 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
-        
+
+        DateTime dateTime = DateTime.Now;
+
         #region Clipboard Text Control
         IntPtr DataClipboard;
         [DllImport("User32.dll", CharSet = CharSet.Auto)]
@@ -49,9 +51,8 @@ namespace WindowsFormsApp1
             IDataObject dObj2 = Clipboard.GetDataObject();
             if (dObj.GetDataPresent(DataFormats.Text))
             {
-                DatabaseOperations.AddData((string)dObj.GetData(DataFormats.Text), "Category");
-
-                CreatePanel.GetPanel(flowLayoutPanel1, DatabaseOperations.GetLastData(), 250, 200, 0, 0); 
+                DatabaseOperations.AddData((string)dObj.GetData(DataFormats.Text), "Category",Convert.ToString(dateTime));
+                CreatePanel.GetPanel(flowLayoutPanel1, DatabaseOperations.GetLastData(), 250, 200, 0, 0);
 
             }
             else if (dObj2.GetDataPresent(DataFormats.Bitmap))
@@ -61,9 +62,10 @@ namespace WindowsFormsApp1
             }
         }
         #endregion
-        OpenFileDialog ofd = new OpenFileDialog();
+
         private void Form1_Load(object sender, EventArgs e)
         {
+            Clipboard.Clear();
             DataClipboard = SetClipboardViewer(this.Handle);
             for (int i = 0; i < DatabaseOperations.GetDataCount(); i++)
             {

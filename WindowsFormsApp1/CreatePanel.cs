@@ -24,7 +24,8 @@ namespace WindowsFormsApp1
             textBox.Text = text;
             panel.Controls.Add(textBox);
             flowLayoutPanel.Controls.Add(panel);
-
+            flowLayoutPanel.Controls.SetChildIndex(panel,0);
+            
             return panel;
         }
     }
