@@ -1,14 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public static class BitmapToBase64
+    class DontUse
     {
-        public static void ToBase64String(RichTextBox richTextBox)
+        public static void BitmapToBase64(RichTextBox richTextBox)
         {
             Rectangle bounds = Screen.GetBounds(Point.Empty);
             Bitmap bitmap = new Bitmap(bounds.Width, bounds.Height);
@@ -25,13 +27,16 @@ namespace WindowsFormsApp1
 
             // Write the bytes (as a string) to the textbox
             richTextBox.Text = System.Text.Encoding.UTF8.GetString(imageBytes);
-
             // Convert byte[] to Base64 String
             string base64String = Convert.ToBase64String(imageBytes);
 
             // Write the bytes (as a Base64 string) to the textbox
             richTextBox.Text = base64String;
         }
-       
     }
 }
+    /*
+ 
+                BitmapToBase64(richTextBox1);
+                
+     */

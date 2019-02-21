@@ -70,7 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BitmapFilter.cs" />
-    <Compile Include="BitmapToBase64.cs" />
+    <Compile Include="DontUse.cs" />
     <Compile Include="CreatePanel.cs" />
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="DatabaseOperations.cs" />
