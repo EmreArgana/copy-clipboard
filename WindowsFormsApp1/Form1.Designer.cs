@@ -34,6 +34,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bunifuGradientPanel1 = new Bunifu.Framework.UI.BunifuGradientPanel();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.doubleBitmapControl1 = new BunifuAnimatorNS.DoubleBitmapControl();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.bunifuGradientPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -61,6 +63,8 @@
             // 
             this.bunifuGradientPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuGradientPanel1.BackgroundImage")));
             this.bunifuGradientPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuGradientPanel1.Controls.Add(this.richTextBox1);
+            this.bunifuGradientPanel1.Controls.Add(this.doubleBitmapControl1);
             this.bunifuGradientPanel1.Controls.Add(this.flowLayoutPanel1);
             this.bunifuGradientPanel1.Controls.Add(this.pictureBox1);
             this.bunifuGradientPanel1.GradientBottomLeft = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(65)))), ((int)(((byte)(108)))));
@@ -77,6 +81,22 @@
             // 
             this.bunifuElipse1.ElipseRadius = 15;
             this.bunifuElipse1.TargetControl = this.bunifuGradientPanel1;
+            // 
+            // doubleBitmapControl1
+            // 
+            this.doubleBitmapControl1.Location = new System.Drawing.Point(358, 247);
+            this.doubleBitmapControl1.Name = "doubleBitmapControl1";
+            this.doubleBitmapControl1.Size = new System.Drawing.Size(275, 101);
+            this.doubleBitmapControl1.TabIndex = 10;
+            this.doubleBitmapControl1.Visible = false;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(703, 247);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(326, 96);
+            this.richTextBox1.TabIndex = 11;
+            this.richTextBox1.Text = "";
             // 
             // Form1
             // 
@@ -100,6 +120,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private Bunifu.Framework.UI.BunifuGradientPanel bunifuGradientPanel1;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private BunifuAnimatorNS.DoubleBitmapControl doubleBitmapControl1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -43,7 +44,7 @@ namespace WindowsFormsApp1
         }
         #endregion
 
-        #region Clipboard Text Control
+        #region Clipboard Text & Bitmap Control
         DateTime dateTime = DateTime.Now;
         IntPtr DataClipboard;
         [DllImport("User32.dll", CharSet = CharSet.Auto)]
@@ -83,10 +84,20 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("Test");
                 pictureBox1.Image = (Image)dObj2.GetData(DataFormats.Bitmap);
+
+
+                BitmapToBase64.ToBase64String(richTextBox1);
+
             }
         }
         #endregion
+
+        #region Convert Bitmap to jpg
         
+        #endregion
+
+
+
         private void Form1_Load(object sender, EventArgs e)
         {
             Clipboard.Clear();
