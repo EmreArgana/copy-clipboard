@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -13,14 +14,37 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
+        private PictureBox pb;
+
         public Form1()
         {
             InitializeComponent();
+
+            pb = new PictureBox();
+            this.Controls.Add(pb);
+            pb.Dock = DockStyle.Fill;
+
         }
 
-        DateTime dateTime = DateTime.Now;
+        #region Blur And Unblur Effect
+        private void Blur()
+        {
+            Bitmap bmp = Screenshot.TakeSnapshot(this);
+            BitmapFilter.GaussianBlur(bmp, 0);
+
+            pb.Image = bmp;
+            pb.SendToBack();
+        }
+
+        private void UnBlur()
+        {
+            pb.Image = null;
+            pb.SendToBack();
+        }
+        #endregion
 
         #region Clipboard Text Control
+        DateTime dateTime = DateTime.Now;
         IntPtr DataClipboard;
         [DllImport("User32.dll", CharSet = CharSet.Auto)]
         public static extern IntPtr SetClipboardViewer(IntPtr hWnd);
@@ -62,7 +86,7 @@ namespace WindowsFormsApp1
             }
         }
         #endregion
-
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             Clipboard.Clear();
