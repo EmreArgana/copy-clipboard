@@ -121,13 +121,14 @@
   <data name="bunifuGradientPanel1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC3SURBVChTjc89C4JgGIXh5/e1tra2RlDgEGQUBAUJCQ2i
-        gYJB0CcENtba2urq2pr6+nF6SxJ6ami/ONyHhDmF0DXEozHi3hCR0kfUUBHVOwhrCsJqC/dKE5S4MwhT
-        Z3jAcFvCjYECP5cnJY5fy90SU+pZ+AdTerKRenOGNYgPrEp4cZGeHSRHibcGxEJi67uZsusSBbYllhlv
-        zDIo81f4hXkz5cEOmb9m+LuZ8tsBebBn2GEHdTwA9FE62ghapr8AAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYSURBVChTY/j/bft/YvCoQryY2gq3/wcA2G9u3KEFB8wA
+        AAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="bunifuElipse1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 18</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>50</value>
   </metadata>
 </root>

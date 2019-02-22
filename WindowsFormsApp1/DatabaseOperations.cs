@@ -52,5 +52,40 @@ namespace WindowsFormsApp1
             return dataTable.Rows[0]["CopiedText"].ToString();
         }
 
+        /// <summary>
+        /// Parametre olarak aldığı int değerin karşılık geldiği verinin id değerini çağırır.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Integer [id]["id"]</returns>
+        public static int GetDataId(int id)
+        {
+            DatabaseConnection.OpenConnection();
+            string Command = "SELECT id FROM TableCopiedData";
+            SQLiteCommand QLiteCommand = new SQLiteCommand(Command, DatabaseConnection.QLiteConnection);
+            SQLiteDataAdapter QLiteDataAdapter = new SQLiteDataAdapter(QLiteCommand);
+            DataTable dataTable = new DataTable();
+            QLiteDataAdapter.Fill(dataTable);
+            DatabaseConnection.CloseConnection();
+            return Convert.ToInt32(dataTable.Rows[id]["id"]);
+        }
+
+        /// <summary>
+        /// Parametre olarak aldığı Column değerinin veritabanında karşılık geldiği sütunu çağırır.
+        /// </summary>
+        /// <param name="Column">id, CopiedText, Category, Date</param>
+        /// <returns>String [0][Column]</returns>
+        public static string GetSelectData(string Column)
+        {
+            DatabaseConnection.OpenConnection();
+            string Command = "SELECT '"+Column+"' FROM TableCopiedData";
+            SQLiteCommand QLiteCommand = new SQLiteCommand(Command, DatabaseConnection.QLiteConnection);
+            SQLiteDataAdapter QLiteDataAdapter = new SQLiteDataAdapter(QLiteCommand);
+            DataTable dataTable = new DataTable();
+            QLiteDataAdapter.Fill(dataTable);
+            DatabaseConnection.CloseConnection();
+            return dataTable.Rows[0][Column].ToString();
+        }
+
+
     }
 }

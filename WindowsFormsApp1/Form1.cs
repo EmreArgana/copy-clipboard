@@ -78,15 +78,14 @@ namespace WindowsFormsApp1
             if (dObj.GetDataPresent(DataFormats.Text))
             {
                 DatabaseOperations.AddData((string)dObj.GetData(DataFormats.Text), "Category",Convert.ToString(dateTime));
-                CreatePanel.GetPanel(flowLayoutPanel1, DatabaseOperations.GetLastData(), 250, 200, 0, 0);
+                CreatePanel.GetBunifuPanel(flowLayoutPanel1, DatabaseOperations.GetLastData(), 300, 300, 1);
+
 
             }
             else if (dObj2.GetDataPresent(DataFormats.Bitmap))
             {
                 MessageBox.Show("Test");
                 pictureBox1.Image = (Image)dObj2.GetData(DataFormats.Bitmap);
-
-                
 
             }
         }
@@ -100,17 +99,19 @@ namespace WindowsFormsApp1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+           
             Clipboard.Clear();
             DataClipboard = SetClipboardViewer(this.Handle);
             for (int i = 0; i < DatabaseOperations.GetDataCount(); i++)
             {
-                CreatePanel.GetPanel(flowLayoutPanel1, DatabaseOperations.GetData(i), 250, 200, 0, 0);
+                CreatePanel.GetBunifuPanel(flowLayoutPanel1, DatabaseOperations.GetData(i), 300, 300, i);
             }
-        }
 
+        }
         private void Form1_LocationChanged(object sender, EventArgs e)
         {
             this.Text = this.Location.ToString();
         }
+        
     }
 }
