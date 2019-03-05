@@ -12,13 +12,13 @@ namespace WindowsFormsApp1
 {
     public class CreatePanel
     {
-        public static Panel GetPanel(FlowLayoutPanel flowLayoutPanel, string text,int panelSizeW,int panelSizeH,int panelX,int panelY)
+        public static Panel GetPanel(FlowLayoutPanel flowLayoutPanel, string text, int panelSizeW, int panelSizeH, int panelX, int panelY)
         {
             var panel = new Panel();
             panel.Size = new Size(panelSizeW, panelSizeH);
             panel.Location = new Point(panelX, panelY);
             panel.BackColor = Color.Gray;
-            
+
             var textBox = new TextBox();
             textBox.Multiline = true;
             textBox.Size = new Size(244, 100);
@@ -27,8 +27,8 @@ namespace WindowsFormsApp1
             panel.Controls.Add(textBox);
 
             flowLayoutPanel.Controls.Add(panel);
-            flowLayoutPanel.Controls.SetChildIndex(panel,0);
-            
+            flowLayoutPanel.Controls.SetChildIndex(panel, 0);
+
             return panel;
         }
 
@@ -40,13 +40,13 @@ namespace WindowsFormsApp1
             Cards.BackColor = Color.White;
             Cards.BorderRadius = 20;
             Cards.BottomSahddow = true;
-            if (sayi1%2==0)
+            if (sayi1 % 2 == 0)
             {
-                Cards.color = Color.Tomato;
+                Cards.color = Color.Aquamarine;
             }
             else
             {
-                Cards.color = Color.Aqua;
+                Cards.color = Color.Turquoise;
             }
             Cards.Controls.Add(MaterialTextbox);// Cards in içine materialtextbox i ekle
             Cards.LeftSahddow = false;
@@ -65,9 +65,9 @@ namespace WindowsFormsApp1
             MaterialTextbox.HintForeColor = Color.Empty;
             MaterialTextbox.HintText = "";
             MaterialTextbox.isPassword = false;
-            MaterialTextbox.LineFocusedColor = Color.Blue;
-            MaterialTextbox.LineIdleColor = Color.Gray;
-            MaterialTextbox.LineMouseHoverColor = Color.Blue;
+            MaterialTextbox.LineFocusedColor = Color.CornflowerBlue;
+            MaterialTextbox.LineIdleColor = Color.SkyBlue;
+            MaterialTextbox.LineMouseHoverColor = Color.CornflowerBlue;
             MaterialTextbox.LineThickness = 3;
             MaterialTextbox.Location = new Point(0, 0);
             MaterialTextbox.Margin = new Padding(4);
@@ -80,10 +80,12 @@ namespace WindowsFormsApp1
 
 
 
+
             flowLayoutPanel.Controls.Add(Cards);
             flowLayoutPanel.Controls.SetChildIndex(Cards, 0);
 
-            
+
+
 
 
             return Cards;
