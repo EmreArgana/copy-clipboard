@@ -19,6 +19,8 @@ C:\Projeler\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\System.Data.SQLite.xml
 C:\Projeler\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\System.Data.SQLite.dll.config
 C:\Projeler\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CopyComplete
 C:\Projeler\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\bin\Debug\database.db
+C:\Projeler\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\MetroFramework.Design.dll
+C:\Projeler\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\MetroFramework.dll
+C:\Projeler\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\MetroFramework.Fonts.dll
 C:\Projeler\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.UserControl1.resources
-C:\Projeler\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.TextForm.resources
-C:\Projeler\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Bunifu_UI_v1.5.4.dll
+C:\Projeler\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.PictureDesign.resources

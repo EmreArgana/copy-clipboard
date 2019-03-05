@@ -1,5 +1,4 @@
-﻿using BunifuAnimatorNS;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,10 +10,11 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MetroFramework.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Form1 : Form
+    public partial class Form1 : MetroForm
     {
         private PictureBox pb;
 
@@ -25,7 +25,6 @@ namespace WindowsFormsApp1
             pb = new PictureBox();
             this.Controls.Add(pb);
             pb.Dock = DockStyle.Fill;
-
         }
 
         #region Blur And Unblur Effect
@@ -79,14 +78,14 @@ namespace WindowsFormsApp1
             if (dObj.GetDataPresent(DataFormats.Text))
             {
                 DatabaseOperations.AddData((string)dObj.GetData(DataFormats.Text), "Category",Convert.ToString(dateTime));
-                CreatePanel.GetBunifuPanel(flowLayoutPanel1, DatabaseOperations.GetLastData(), 300, 300, 1);
+                CreateObject.GetMetroTextBox(flowLayoutPanel1, DatabaseOperations.GetLastData(), 300, 300, 1);
 
 
             }
             else if (dObj2.GetDataPresent(DataFormats.Bitmap))
             {
                 MessageBox.Show("Test");
-                pictureBox1.Image = (Image)dObj2.GetData(DataFormats.Bitmap);
+                CreateObject.GetPictureBox(flowLayoutPanel1, (Image)dObj2.GetData(DataFormats.Bitmap), 300, 300);
             }
         }
         #endregion
@@ -103,7 +102,7 @@ namespace WindowsFormsApp1
             DataClipboard = SetClipboardViewer(this.Handle);
             for (int i = 0; i < DatabaseOperations.GetDataCount(); i++)
             {
-                CreatePanel.GetBunifuPanel(flowLayoutPanel1, DatabaseOperations.GetData(i), 300, 300, i);
+               CreateObject.GetMetroTextBox(flowLayoutPanel1, DatabaseOperations.GetData(i), 300, 300, i);
             }
 
         }
