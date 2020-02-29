@@ -1,2 +1,2 @@
 # copy-clipboard
-A program for storing data in ram
+A program for storing data in HDD
